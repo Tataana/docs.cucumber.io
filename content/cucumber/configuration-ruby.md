@@ -1,7 +1,6 @@
 ---
-title: Cucumber Configuration
+title: Cucumber Ruby Configuration
 subtitle: cucumber.yml, environment variables
-polyglot: true
 ---
 
 You can specify configuration options for Cucumber in a `cucumber.yml` or `cucumber.yaml` file.
@@ -24,13 +23,11 @@ The example above generates two profiles:
 1. `html_report`, with a list of command-line options that specify new output formats, and
 2. `bvt`, which executes all Features and Scenarios [tagged](/cucumber/api/#tags) with `@bvt`.
 
-{{% text "ruby" %}}
 Cucumber-Rails creates a `cucumber.yml` file in the project config directory containing a number of predefined profiles,
 one of which is the default profile. When Cucumber is run from the command line, it is usually necessary to provide both
 the directory name containing the root directory of the tree containing feature files and the directory name containing
 references to the necessary library files. In a typical project, `cucumber --require features features/some/path` will suffice.
 Repetitious usages can be added to user-defined profiles contained in the project's `cucumber.yml` file.
-{{% /text %}}
 
 ## Executing Profiles
 
@@ -95,7 +92,7 @@ So, if you have several profiles with similar values, you might do this:
    default: <%= common %> features
    html_report: <%= common %> --format html --out=features_report.html features
    ```
-
+   
 ## Environment Variables
 
 You can use environment variables in the profile argument list, just as you would normally specify them on the command-line.
@@ -130,7 +127,8 @@ For example, the following sets up a profile that runs the specified Tag and set
    baz: --tags @mytag FOO=BAR
    ```
 
-{{% text "ruby" %}}
+## Env.rb
+
 Local Cucumber customisation code in `support/env.rb` itself as that file is typically
 overwritten by `script/generate cucumber:install | rails g cucumber`. Customisations that
 must be loaded before the rest of Cucumber initialises must be placed at the beginning of the `env.rb file`.
@@ -149,15 +147,3 @@ As a matter of good practice you should always run `script/generate cucumber | r
 install an updated version of Cucumber or cucumber-rails. However, this overwrites `features/support/env.rb`.
 In order to keep any custom configurations from your `env.rb` file, check in your `env.rb` along with the rest of your version
 controlled files and be prepared to diff and merge changes to `env.rb` between versions of Cucumber-Rails.
-{{% /text %}}
-
-{{% block "java" %}}
-```java
-public class MyConfiguration extends cucumber.api.Configuration {
-    @Override
-    public void configureTypeRegistry(TypeRegistry typeRegistry) {
-        // Register custom parameter types and data table types here.
-    }
-}
-```
-{{% /block %}}

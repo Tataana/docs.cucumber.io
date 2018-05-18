@@ -68,6 +68,10 @@ output parameters to your own types. Consider this Cucumber Expression:
 If we want the `{color}` output parameter to be converted to a `Color` object,
 we can define a custom parameter type in Cucumber's [configuration](/cucumber/configuration).
 
+TODO: This should link to configuration-ruby#Env.rb
+TODO: This should link to configuration-js#Env.rb
+TODO: This should link to configuration-java#Env.rb
+
 {{% block "java" %}}
 ```java
 typeRegistry.defineParameterType(new ParameterType<>(

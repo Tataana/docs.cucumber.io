@@ -747,7 +747,8 @@ Cucumber does not work when installed globally because cucumber needs to be requ
 
 You can also run features using a [build tool](/tools/general#build-tools) or an [IDE](/tools/general#ides).
 
-# Configuration
+# Configuration 
+//TODO: This overlaps with the other configuration bits??
 
 Cucumber provides several configuration options.
 
