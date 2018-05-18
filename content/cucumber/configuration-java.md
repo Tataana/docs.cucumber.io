@@ -4,9 +4,8 @@ title: Cucumber JVM Configuration
 
 # Type Registry Configuration
 
-The type registry is used to configure parameter and data table types. 
-
-Cucumber will scan the glue path for a single class implementing `TypeRegistryConfigurer`.
+The type registry is used to configure parameter and data table types. It can be configured by placing an implementation 
+of `cucumber.api.TypeRegistryConfigurer` on the glue path.
 
 
 ```java
