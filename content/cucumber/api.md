@@ -748,9 +748,18 @@ Cucumber does not work when installed globally because cucumber needs to be requ
 You can also run features using a [build tool](/tools/general#build-tools) or an [IDE](/tools/general#ides).
 
 # Configuration 
-//TODO: This overlaps with the other configuration bits??
 
-Cucumber provides several configuration options.
+Cucumber provides several configuration options. 
+
+{{% block "ruby" %}}
+See also [Ruby Configuration](/cucumber/configuration-ruby)  
+{{% /block %}}
+{{% block "java" %}}
+See also [Java Configuration](/cucumber/configuration-jvm)  
+{{% /block %}}
+{{% block "js" %}}
+See also [JS Configuration](/cucumber/configuration-js)  
+{{% /block %}}
 
 ## Command-line
 
@@ -796,36 +805,6 @@ Or:
 ```
 mvn test -Dcucumber.options="--help"
 ```
-
-For example, if you want to tell Cucumber to use the two formatter plugins `pretty` and `html`, you can specify it like this:
-
-```java
-package mypackage;
-
-import cucumber.api.CucumberOptions;
-import cucumber.api.junit.Cucumber;
-import org.junit.runner.RunWith;
-
-@RunWith(Cucumber.class)
-@CucumberOptions(plugin = {"pretty", "html:target/cucumber"})
-public class RunCukesTest {
-}
-```
-
-Usually, this class will be empty. You can, however, specify several JUnit rules.
-
-{{% note "Supported JUnit annotations"%}}
-Cucumber supports JUnits `@ClassRule`, `@BeforeClass` and `@AfterClass` annotations.
-These will executed before and after all scenarios. Using these is not recommended, as it limits the portability between different runners;
-they may not execute correctly when using the commandline, [IntelliJ IDEA](https://www.jetbrains.com/help/idea/cucumber.html) or
-[Cucumber-Eclipse](https://github.com/cucumber/cucumber-eclipse). Instead it is recommended to use Cucumbers `Before`
-and `After` [hooks](#hooks).
-{{% /note %}}
-
-The Cucumber runner acts like a suite of a JUnit tests. As such other JUnit features such as Categories, Custom JUnit
-Listeners and Reporters can all be expected to work.
-
-For more information on JUnit, see the [JUnit web site](http://www.junit.org).
 {{% /block %}}
 
 {{% block "javascript" %}}
@@ -848,7 +827,7 @@ Some of the runners provide additional mechanisms for passing options to Cucumbe
 {{% /block %}}
 
 {{% block "ruby" %}}
-You can also define common command-line options in a [`cucumber.yml`](/cucumber/configuration/) file.
+You can also define common command-line options in a [`cucumber.yml`](/cucumber/configuration-ruby) file.
 {{% /block %}}
 
 {{% block "javascript" %}}
